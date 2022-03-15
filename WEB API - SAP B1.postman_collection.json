@@ -1,0 +1,1769 @@
+{
+	"info": {
+		"_postman_id": "f4bd3b3d-5902-4684-a67f-3e5e8858619a",
+		"name": "WEB API - SAP B1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Servers",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Servers?$expand=UserCreate,UserUpdate&$filter=Active eq true",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Servers"
+							],
+							"query": [
+								{
+									"key": "?$expand",
+									"value": "UserCreate",
+									"disabled": true
+								},
+								{
+									"key": "$select",
+									"value": "Id,Description",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": "UserCreate,UserUpdate"
+								},
+								{
+									"key": "$filter",
+									"value": "Active eq true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Servers?$expand=COMPANY&$select=Id, Description, COMPANY/Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:30044/b1s/v1/Servers?$expand=COMPANY&$select=Id, Description, COMPANY/Id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "30044",
+							"path": [
+								"b1s",
+								"v1",
+								"Servers"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "COMPANY"
+								},
+								{
+									"key": "$select",
+									"value": "Id, Description, COMPANY/Id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": null,\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": false,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"Id\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"Description\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"ServerType\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"Server\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"DbUserName\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"DbPassword\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": null,\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": null,\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 1,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 10,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Servers/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Servers",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Description\": \"Test\",\n\t\"Valid\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Servers",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Servers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Servers(8)",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Servers(8)"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BusinessPartners",
+			"item": [
+				{
+					"name": "BusinessPartners?$select=CardCode, CardName",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "odata.maxpagesize=1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Description\": \"BSF SERVER 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/BusinessPartners?$select=CardCode, CardName",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"BusinessPartners"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "CardCode, CardName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BusinessPartners?$inlinecount=allpages&$select=CardCode,CardName&?$odata.MaxPageSize=0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "odata.maxpagesize=1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Description\": \"local mark\",\n    \"ServerType\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/BusinessPartners?$inlinecount=allpages&$select=CardCode,CardName&?$odata.MaxPageSize=0",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"BusinessPartners"
+							],
+							"query": [
+								{
+									"key": "$inlinecount",
+									"value": "allpages"
+								},
+								{
+									"key": "$select",
+									"value": "CardCode,CardName"
+								},
+								{
+									"key": "?$odata.MaxPageSize",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PurchaseRequests",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"DocNum\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/PurchaseRequests",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"PurchaseRequests"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ServerTypes",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/ServerTypes",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"ServerTypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users?$expand=UserCreate",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "UserCreate"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "?$expand=COMPANY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users?$expand=Companies,Projects,ProfitCenters,Warehouses",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "Companies,Projects,ProfitCenters,Warehouses"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "('dced537b-3e23-47a0-98b7-3f65b5d05c6a')/Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users('dced537b-3e23-47a0-98b7-3f65b5d05c6a')/Companies",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users('dced537b-3e23-47a0-98b7-3f65b5d05c6a')",
+								"Companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "('')/Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users('397f5b5a-e610-4ae0-867a-c633ff3385b7')/Companies",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users('397f5b5a-e610-4ae0-867a-c633ff3385b7')",
+								"Companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "('')/ProfitCenters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users('')/ProfitCenters",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users('')",
+								"ProfitCenters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "('')/Warehouses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users('')/Warehouses",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users('')",
+								"Warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "('')/Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Users('')/Projects",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Users('')",
+								"Projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{CompanyId}/Users/{UserId}/Companies/GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": \"Id\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"Description\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"UserId\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 10,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/1/Users/397f5b5a-e610-4ae0-867a-c633ff3385b7/Companies/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"1",
+								"Users",
+								"397f5b5a-e610-4ae0-867a-c633ff3385b7",
+								"Companies",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{CompanyId}/Users/{UserId}/Warehouses/GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": \"WhsCode\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"WhsName\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"UserId\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 10,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/1/Users/397f5b5a-e610-4ae0-867a-c633ff3385b7/Warehouses/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"1",
+								"Users",
+								"397f5b5a-e610-4ae0-867a-c633ff3385b7",
+								"Warehouses",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{CompanyId}/Users/{UserId}/ProfitCenters/GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": \"PrcCode\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"PrcName\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"UserId\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 10,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/1/Users/397f5b5a-e610-4ae0-867a-c633ff3385b7/ProfitCenters/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"1",
+								"Users",
+								"397f5b5a-e610-4ae0-867a-c633ff3385b7",
+								"ProfitCenters",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/{CompanyId}/Users/{UserId}/Projects/GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": \"PrjCode\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"PrjName\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"UserId\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 10,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/1/Users/397f5b5a-e610-4ae0-867a-c633ff3385b7/Projects/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"1",
+								"Users",
+								"397f5b5a-e610-4ae0-867a-c633ff3385b7",
+								"Projects",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "UserInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Accounts/UserInfo",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Accounts",
+								"UserInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Email\": \"{{username}}\",\n    \"Password\": \"{{password}}\",\n    \"ConfirmPassword\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Accounts/Register",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Accounts",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Accounts/Logout",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Accounts",
+								"Logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"OldPassword\": \"string\",\r\n  \"NewPassword\": \"string\",\r\n  \"ConfirmPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Accounts/ChangePassword",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Accounts",
+								"ChangePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NewPassword\": \"string\",\r\n  \"ConfirmPassword\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Accounts/SetPassword",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Accounts",
+								"SetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Projects",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menus",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Menus?$expand=UserCreate",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Menus"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "UserCreate"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDatatable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Menus/GetDatatable?length=-1",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Menus",
+								"GetDatatable"
+							],
+							"query": [
+								{
+									"key": "length",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\": \"0001\",\n\t\"Description\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Menus",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Menus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Menus('0001')",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Menus('0001')"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "GetSelect2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items/GetSelect2?_type=query&page=1&pageSize=1&compania=1&term=iphone",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items",
+								"GetSelect2"
+							],
+							"query": [
+								{
+									"key": "_type",
+									"value": "query"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								},
+								{
+									"key": "compania",
+									"value": "1"
+								},
+								{
+									"key": "term",
+									"value": "iphone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "?$select=ItemCode&$filter=contains(ItemName,'masivo')",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Prefer",
+								"value": "odata.maxpagesize=0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items?$select=ItemCode&$filter=contains(ItemName,'masivo')",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "ItemCode"
+								},
+								{
+									"key": "$filter",
+									"value": "contains(ItemName,'masivo')"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "?$select=ItemCode,ItemName&$skip=20&$top=5&$count=true&$filter=indexof(tolower(ItemCode), 'art') gt -1or indexof(tolower(ItemName), 'art') gt -1 ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items?$select=ItemCode,ItemName&$skip=20&$top=5&$count=true&$filter=indexof(tolower(ItemCode), 'art') gt -1or indexof(tolower(ItemName), 'art') gt -1 ",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "ItemCode,ItemName"
+								},
+								{
+									"key": "$skip",
+									"value": "20"
+								},
+								{
+									"key": "$top",
+									"value": "5"
+								},
+								{
+									"key": "$count",
+									"value": "true"
+								},
+								{
+									"key": "$filter",
+									"value": "indexof(tolower(ItemCode), 'art') gt -1or indexof(tolower(ItemName), 'art') gt -1 "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Items/1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ItemCode\" : \"z4\",\n\t\"ItemName\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items/1",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items/1/",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get(ItemCode)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items('00001')",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items('00001')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"draw\": 1,\n    \"columns\": [\n        {\n            \"data\": \"validFor\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"ItemCode\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"ItemName\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"BuyUnitMsr\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"TaxCodeAP\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"SalUnitMsr\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": \"TaxCodeAR\",\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": null,\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        },\n        {\n            \"data\": null,\n            \"name\": \"\",\n            \"searchable\": true,\n            \"orderable\": true,\n            \"search\": {\n                \"value\": \"\",\n                \"regex\": false\n            }\n        }\n    ],\n    \"order\": [\n        {\n            \"column\": 0,\n            \"dir\": \"asc\"\n        }\n    ],\n    \"start\": 0,\n    \"length\": 50,\n    \"search\": {\n        \"value\": \"\",\n        \"regex\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Items/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Items",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Companies",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDatatable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Companies/GetDatatable",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Companies",
+								"GetDatatable"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:30044/b1s/v1/Roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "30044",
+							"path": [
+								"b1s",
+								"v1",
+								"Roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Id\": \"EMPLEADO\",\n    \"Name\": \"EMPLEADO ROL\",\n    \"Comments\": \"ACCESO ROOT EN EL PORTAL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:30044/b1s/v1/Roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "30044",
+							"path": [
+								"b1s",
+								"v1",
+								"Roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update('Id')",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\": \"EMPLEADO\",\n    \"Name\": \"EMPLEADO ROL\",\n    \"Comments\": \"ACCESO ROOT EN EL PORTAL mark\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:30044/b1s/v1/Roles('EMPLEADO')",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "30044",
+							"path": [
+								"b1s",
+								"v1",
+								"Roles('EMPLEADO')"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LocationRequests",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests?$expand=LocationRequestAttachments",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "LocationRequestAttachments"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"CompanyId\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update(Id)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \n   \"LocationRequestAttachments\": [\n        {\n            \"LocationRequestId\": 5,\n            \"LineId\": 1,\n            \"Description\": \"La Victoria 2\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests(5)",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests(5)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"CompanyId\": 1,\n    \"Ciudad\": \"Lima\",\n    \"Distrito\": \"La Victoria\",\n    \"LocationRequestAttachments\": [\n        {\n            \"LineId\": 1,\n            \"Description\": \"La Victoria\"\n        },\n        {\n            \"LineId\": 2,\n            \"Description\": \"La Victoria\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(6)?$expand=LocationRequestAttachments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests(1)?$expand=LocationRequestAttachments",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests(1)"
+							],
+							"query": [
+								{
+									"key": "$expand",
+									"value": "LocationRequestAttachments"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(5)/LocationRequestAttachments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/LocationRequests(6)/LocationRequestAttachments",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"LocationRequests(6)",
+								"LocationRequestAttachments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "{companyId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url_base}}/b1s/v1/Warehouses/1?$select=WhsCode,WhsName",
+							"host": [
+								"{{url_base}}"
+							],
+							"path": [
+								"b1s",
+								"v1",
+								"Warehouses",
+								"1"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "WhsCode,WhsName"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UDO",
+			"item": [
+				{
+					"name": "CreateUserFieldMD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"TableName\": \"{{TableName}}\",\r\n        \"Name\": \"{{Name}}\",\r\n        \"Description\": \"{{Description}}\",\r\n        \"Type\": \"{{Type}}\",\r\n        \"Size\": {{Size}}\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hanab1:50000/b1s/v2/UserFieldsMD",
+							"protocol": "https",
+							"host": [
+								"hanab1"
+							],
+							"port": "50000",
+							"path": [
+								"b1s",
+								"v2",
+								"UserFieldsMD"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Query",
+			"item": [
+				{
+					"name": "PedidoVenda",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "B1S-ReplaceCollectionsOnPatch",
+								"value": "true",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"QueryPath\": \"$crossjoin(Orders,Orders/DocumentLines)\",\r\n\"QueryOption\": \"$expand=Orders($select=DocEntry,DocNum),\r\nOrders/DocumentLines($select=ItemCode,LineNum)&$filter=Orders/DocEntry eq \r\nOrders/DocumentLines/DocEntry and Orders/DocEntry ge 3 and Orders/DocumentLines/LineStatus eq 'bost_Open'\"\r\n}"
+						},
+						"url": {
+							"raw": "https://hanab1:50000/b1s/v1/QueryService_PostQuery",
+							"protocol": "https",
+							"host": [
+								"hanab1"
+							],
+							"port": "50000",
+							"path": [
+								"b1s",
+								"v1",
+								"QueryService_PostQuery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PedidoVenda Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hanab1:50000/b1s/v1/Orders(187)",
+							"protocol": "https",
+							"host": [
+								"hanab1"
+							],
+							"port": "50000",
+							"path": [
+								"b1s",
+								"v1",
+								"Orders(187)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBPById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://leap:50000/b1s/v1/BusinessPartners('C30000')",
+							"protocol": "https",
+							"host": [
+								"leap"
+							],
+							"port": "50000",
+							"path": [
+								"b1s",
+								"v1",
+								"BusinessPartners('C30000')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginHanaXappAPI",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Easy@123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "SYSTEM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "server",
+									"value": "hanab1:30015",
+									"type": "text"
+								},
+								{
+									"key": "sld",
+									"value": "hanab1:40000",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "SBODEMOBR",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "manager",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "pt-BR",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://hanab1:8000/sap/sbo/platform/login",
+							"protocol": "https",
+							"host": [
+								"hanab1"
+							],
+							"port": "8000",
+							"path": [
+								"sap",
+								"sbo",
+								"platform",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserFieldsMD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://HANAB1:50000/b1s/v2/UserFieldsMD?$select=*&$filter=Name eq 'HORAF'",
+							"protocol": "https",
+							"host": [
+								"HANAB1"
+							],
+							"port": "50000",
+							"path": [
+								"b1s",
+								"v2",
+								"UserFieldsMD"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "*"
+								},
+								{
+									"key": "$filter",
+									"value": "Name eq 'HORAF'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\": \"{{UserName}}\",\r\n    \"Password\": \"{{Password}}\",\r\n    \"CompanyDB\": \"{{CompanyDB}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/b1s/v1/Login",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"b1s",
+						"v1",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "$metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base}}/b1s/v1/$metadata",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"b1s",
+						"v1",
+						"$metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InitConfig",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base}}/b1s/v1/Login/InitConfig/(1)",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"b1s",
+						"v1",
+						"Login",
+						"InitConfig",
+						"(1)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "_",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://HANAB1:50000/b1s/v2/UserFieldsMD?$select=*&$filter=Name eq 'HORAF'",
+					"protocol": "https",
+					"host": [
+						"HANAB1"
+					],
+					"port": "50000",
+					"path": [
+						"b1s",
+						"v2",
+						"UserFieldsMD"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "*"
+						},
+						{
+							"key": "$filter",
+							"value": "Name eq 'HORAF'"
+						}
+					]
+				},
+				"description": "UserFieldsMD"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://hanab1:50000"
+		},
+		{
+			"key": "username",
+			"value": "manager"
+		},
+		{
+			"key": "password",
+			"value": "061908"
+		}
+	]
+}
